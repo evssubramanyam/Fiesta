@@ -1,0 +1,206 @@
+@import url('https://fonts.google.com/specimen/Raleway');
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: Raleway;
+	src: url(https://fonts.google.com/specimen/Raleway);
+	font-weight: bold;
+ }
+ 
+body {
+	height: 100%;
+	font-family: 
+		'Raleway',sans-serif;
+	background-color: #FFFCF2;
+}
+h1 {
+	font-size: 3rem;
+	font-weight: 100;
+	margin: 1rem 0 3rem;
+	text-align: center;
+	color: #fff;
+}
+.styling {
+	font-weight: 800;
+	color: rgb(211, 88, 17);
+}
+.input_div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.input_div .input {
+	padding: 0.5rem 1rem;
+	height: 50px;
+	outline: none;
+	background-color: #fff;
+	width: 450px;
+	font-size: 1.5rem;
+	margin: 0.25rem;
+	border-radius: 25px;
+	border:solid black;
+}
+.addButton {
+	height: 50px;
+	width: 200px;
+	border-radius: 25px;
+	outline: #111;
+	border: none;
+	color: #fff;
+	font-size: 30px;
+	margin: 0.25rem;
+	background-color: rgb(38, 11, 158);
+	cursor: pointer;
+}
+.addButton:hover {
+	opacity: 0.7;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+}
+.row{
+	flex-direction: row;
+	height: 100%;
+}
+.item {
+	padding: 0rem;
+	margin-bottom: 1rem;
+	width: 100%;
+	height: 5rem;
+	border: 2px solid #143622;
+	text-align: left 20px;
+}
+.editButton {
+	display: flex;
+	font-size: 1rem;
+	margin: 0rem;
+	width: 50%;
+	background: none;
+	outline: none;
+	padding: 0.3rem;
+	background-color: #B2D172;
+	border: none;
+	text-align: center;
+	align-self: center;
+	cursor: pointer;
+	border-radius: 15px 15px 15px 15px;
+}
+.removeButton {
+	display: flex;
+	padding: 0.3rem;
+	width: 50%;
+	font-size: 1rem;
+	margin: 0rem;
+	align-self: center;
+	font-family: 'Hind', sans-serif;
+	background: none;
+	outline: none;
+	background-color: #e00;
+	border: none;
+	cursor: pointer;
+	border-radius: 15px 15px 15px 15px;
+}
+.gaga {
+    height:auto;
+    width:45%;
+        /* set to anything and aspect ratio is maintained */
+}
+
+.mainih h1{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Raleway', serif;
+}
+
+input {
+    font-family: 'Raleway';
+    width: 100%;
+    font-size: 20px;
+    padding: 18px 30px;
+    margin: 8px 0;
+    border-top: 10px black;
+    border-left: 10px black;
+    border-right: 10px black;
+    background-color: var(--color-darkslategray);
+}
+
+input[type=submit] {
+    position: absolute;
+    font-family: 'Helvetica', serif;
+    width: 20%;
+    right: 40%;
+    bottom: 15%;
+    background-color: #143622;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin: 4px 2px;
+    border-radius: 10px;
+}
+
+.s22{
+	bottom:0% !important
+}
+.mainih{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    height: 100%;
+	width: 50%;
+    padding: 10px;
+    font-family: var(--font-raleway), serif;
+    background-color: #fffcf2;
+}
+.part1{
+	background-color:#B2D172;
+	
+}
+.momo{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0.2rem;
+  }
+.nameo{text-align: center;
+font-size:xx-large;
+font-weight: bolder;}
+.dateo{text-align: center;}
+.timeo{text-align: center;
+font-weight:bold;}
+.addresso{text-align: center;}
+.noblk{display: flex;
+flex-direction: column;}
+.smalls{
+	display: flex;
+	flex-direction: column;
+}
+.hola{
+	width: 70%;
+	justify-self: center;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	align-self: center;
+	padding: 8px 15px;
+	background-color:#ffb700;
+}
+.desc{
+	width: 70%;
+	height: 5rem;
+	align-items: center;
+	align-self: center;
+	background-color: #B2D172;
+}
+.aTag{
+	text-decoration: none;
+}

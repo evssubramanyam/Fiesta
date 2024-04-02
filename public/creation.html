@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+
+</head>
+<body>
+    <h1><img src="form.png" width="40" height="40"><span class="styling">   Event creation</span></h1>
+    <form id="event-form">
+        <div class="smalls">
+        <input type="text" class="hola" placeholder="Event name"
+        autocomplete="off"
+        id="evname">
+        <input type="text" class="hola" placeholder="Address" name="address" id="address">
+        <input type="text" class="hola" placeholder="City" name="city" id="city">
+        <input type="time" class="hola" name="Time" id="time">
+        <input type="date" class="hola" name="date" id="date">
+        <textarea class="desc" id="desco">Description here</textarea>
+        <input type="submit" value="Submit" class="s22">
+    </div>
+    </form>
+    <script>
+        const form = document.getElementById('event-form')
+        form.addEventListener('submit',registerEvent)
+
+async function registerEvent(event) {
+    event.preventDefault()
+    const eventname = document.getElementById('evname').value
+    const address = document.getElementById('address').value
+    const city = document.getElementById('city').value
+    const time = document.getElementById('time').value
+    const date = document.getElementById('date').value
+    const desco = document.getElementById('desco').value
+    console.log(date,time)
+    const result= await fetch('/api/createevent',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                eventname,
+                address,
+                city,
+                time,
+                date,
+                desco
+            }
+            )
+        }).then((res) => res.json())
+    if(result.status === 'ok'){
+        const id1=result.eventid
+        const idol=localStorage.getItem('ido')
+        console.log('hmpp',idol)
+        const result2= await fetch('/api/userevent',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id1,
+                idol
+            }
+            )
+        }).then((res) => res.json())
+        if(result2.status === 'ok'){
+            const huhu=result2.usid
+            const result255= await fetch('/api/eventtouser',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id1,
+                huhu
+            }
+            )
+        }).then((res) => res.json())
+        if(result255.status === 'ok'){
+            console.log('did it',result255.usid)
+        }
+            console.log('wow vivek')
+        }
+        localStorage.setItem('ido',result.ido)
+        document.location.href = "http://localhost:9999/dashboard.html";
+    }
+        console.log('lalana',result)
+}
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

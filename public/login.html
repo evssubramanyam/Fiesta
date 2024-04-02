@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" /> 
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="think">
+        <img src="icon2-2.svg" alt="Image" srcset="" class="gaga">
+    </div>
+    <div class="mainih">
+    <h2><b>Log In</b></h2>
+    <form id="login">
+        <br>
+        <br>
+        <br>
+        <input type="text" placeholder="Username"
+        autocomplete="off"
+        id="username">
+        <br>
+        <br>
+        <br>
+        <input type="password" id="password" placeholder="Password">
+        <input type="submit" value="Submit" id="buuu">
+    </form>
+    <script>
+        const form = document.getElementById('login')
+        form.addEventListener('submit',login)
+    async function login(event) {
+    event.preventDefault()
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
+    console.log(username)
+    const result= await fetch('/api/login',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        }).then((res) => res.json())
+        console.log(result)
+
+        if(result.status ==='ok'){
+            console.log('got:',result.data)
+            localStorage.setItem('ido',result.ido)
+            alert('Success')
+            console.log(localStorage.getItem('ido'))
+            document.location.href = "http://localhost:9999/dashboard.html"
+        }
+        else{
+            alert(result.error)
+        }
+        }
+    </script>
+    </div>
+
+</body>
+</html>
